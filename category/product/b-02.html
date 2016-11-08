@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Milk Bun</title>
+
+        <script src="http://code.jquery.com/jquery-3.1.1.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../script/script.js" type="text/javascript"></script>
+
+    </head>
+
+    <body>
+        <header class="row">
+            <div class="col-md-12">
+                <h1>IERG4210 WEB PROGRAMMING AND SECURITY (2016 FALL)</h1>
+                <h1>ASSIGNMENT PHASE 1: LOOK AND FEEL</h1>
+            </div>
+        </header>
+        <div class="row">
+
+            <!-- Category menu -->
+            <nav class="menu col-md-2 col-sm-2">
+
+                <h3>Category</h3>
+                <ul>
+                    <li><a href="../breakfast.html">Breakfast & Bakery</a></li>
+                    <li><a href="#">Frozen Food</a></li>
+                </ul>
+
+
+            </nav>
+
+            <div class="content col-md-10 col-sm-10">
+
+                <div class="row">
+                    <nav class="nav-bar col-md-9 col-sm-9"><a href="../../main.html">Home</a> > <a href="../breakfast.html">Breakfast & Bakery</a> > <a href="b-02.html">Milk Bun</a> </nav>
+                    <div class="shopping-list shopping-list__summary col-md-3 col-sm-3">Shopping List $<span id="total">9.90</span></div>
+                    <div class="shopping-list shopping-list__detail hidden col-md-3 col-sm-3">Shopping List (Total: $<span id="total--detail"></span>)
+                        <div class="shopping-list__item row"></div>
+                        <button  type="button" class="checkout btn btn-default">Check Out</button>
+                    </div>
+                </div>
+
+                <!-- Product detail -->
+                <div class="products row">
+                    <h3 class="col-md-12">Milk Bun</h3>
+                    <div class="col-md-6 col-sm-6">
+                        <img src="../../image/b02.jpg">
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <article>
+                            <section>
+                                <p>Name: Milk Bun </p>
+                                <p>Price: $<span>9.90</span></p>
+                                <button  type="button" class="add btn btn-default" data-name="Milk Bun" data-price="9.9 0">Add</button>
+                            </section>
+
+                            <hr>
+
+                            <section>
+                                <h5>Description</h5>
+                                <ul>
+                                    <li>4 PCS</li>
+                                </ul>
+                            </section>
+
+                            <hr>
+
+                            <section>
+                                <h5>Delivery Methods</h5>
+                                <ul>
+                                    <li>Local Delivery (1-7Days)</li>
+                                </ul>
+                            </section>
+
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <h3>Wong Chun Yin 1155061009</h3>
+        </footer>
+
+    </body>
+
+</html>

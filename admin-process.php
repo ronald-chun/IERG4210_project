@@ -77,12 +77,13 @@ function ierg4210_prod_insert() {
 	// input validation or sanitization
 	$_POST['catid'] = (int) $_POST['catid'];
 	$_POST['pid'] = (int) $_POST['pid'];
-	// if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
-	// 	throw new Exception("invalid-name");
-	// if (!preg_match('/^[\d\.]+$/', $_POST['price']))
-	// 	throw new Exception("invalid-price");
-	// if (!preg_match('/^[\w\-, ]+$/', $_POST['description']))
-	// 	throw new Exception("invalid-description");
+	if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
+		throw new Exception("invalid-name");
+	if (!preg_match('/^[\d\.]+$/', $_POST['price']))
+		throw new Exception("invalid-price");
+	if (!preg_match('/^[\w\-, ]+$/', $_POST['description']))
+		throw new Exception("invalid-description");
+
 
 	// DB manipulation
 	global $db;
@@ -126,12 +127,12 @@ function ierg4210_prod_edit() {
 	// input validation or sanitization
 	$_POST['catid'] = (int) $_POST['catid'];
 	$_POST['pid'] = (int) $_POST['pid'];
-	// if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
-	// 	throw new Exception("invalid-name");
-	// if (!preg_match('/^[\d\.]+$/', $_POST['price']))
-	// 	throw new Exception("invalid-price");
-	// if (!preg_match('/^[\w\-, ]$/', $_POST['description']))
-	// 	throw new Exception("invalid-description");
+	if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
+		throw new Exception("invalid-name");
+	if (!preg_match('/^[\d\.]+$/', $_POST['price']))
+		throw new Exception("invalid-price");
+	if (!preg_match('/^[\w\-, ]+$/', $_POST['description']))
+		throw new Exception("invalid-description");
 
 	// DB manipulation
 	global $db;

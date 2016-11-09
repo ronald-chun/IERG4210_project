@@ -77,6 +77,8 @@
 			<label for="prod_edit_catid">Category *</label>
 			<div><select id="prod_edit_catid" name="catid"></select></div>
 
+			<input id="prod_edit_pid" type="hidden" name="pid" value="">
+
 			<label for="prod_edit_name">Name *</label>
 			<div><input id="prod_edit_name" type="text" name="name" required="true" pattern="^[\w\- ]+$" /></div>
 
@@ -86,8 +88,8 @@
 			<label for="prod_edit_description">Description</label>
 			<div><textarea id="prod_edit_description" name="description" pattern="^[\w\-, ]$"></textarea></div>
 
-			<label for="prod_edit_name">Image *</label>
-			<div><input type="file" name="file" required="true" accept="image/jpeg" /></div>
+			<label for="prod_edit_name">Image</label>
+			<div><input type="file" name="file" accept="image/jpeg" /></div>
 			<div><img id="prod_edit_img"></div>
 			<input type="submit" value="Submit" /> <input type="button" id="prod_edit_cancel" value="Cancel" />
 		</form>
@@ -97,9 +99,9 @@
 <div class="clear"></div>
 </article>
 <script type="text/javascript" src="incl/myLib.js"></script>
-<script type="text/javascript">
-(function(){
-
+<script type="text/javascript" src="tmp.js"></script>
+<!-- (function(){
+	alert('1');
 	function updateUI() {
 		myLib.get({action:'cat_fetchall'}, function(json){
 			// console.log(JSON.stringify(json));
@@ -208,7 +210,7 @@
 		el('productPanel').show();
 	}
 
-})();
+})(); -->
 </script>
 </body>
 </html>

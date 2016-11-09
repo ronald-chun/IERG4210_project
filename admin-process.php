@@ -61,6 +61,8 @@ function ierg4210_prod_fetch_a_cat() {
 }
 
 function ierg4210_prod_fetch() {
+	// input validation or sanitization
+	$_POST['catid'] = (int) $_POST['catid'];
 	$_POST['pid'] = (int) $_POST['pid'];
 
 	// DB manipulation
@@ -73,6 +75,14 @@ function ierg4210_prod_fetch() {
 
 function ierg4210_prod_insert() {
 	// input validation or sanitization
+	$_POST['catid'] = (int) $_POST['catid'];
+	$_POST['pid'] = (int) $_POST['pid'];
+	// if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
+	// 	throw new Exception("invalid-name");
+	// if (!preg_match('/^[\d\.]+$/', $_POST['price']))
+	// 	throw new Exception("invalid-price");
+	// if (!preg_match('/^[\w\-, ]+$/', $_POST['description']))
+	// 	throw new Exception("invalid-description");
 
 	// DB manipulation
 	global $db;
@@ -112,10 +122,57 @@ function ierg4210_prod_insert() {
 
 // TODO: add other functions here to make the whole application complete
 function ierg4210_prod_edit() {
-	return 0;
+
+	// input validation or sanitization
+	$_POST['catid'] = (int) $_POST['catid'];
+	$_POST['pid'] = (int) $_POST['pid'];
+	// if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
+	// 	throw new Exception("invalid-name");
+	// if (!preg_match('/^[\d\.]+$/', $_POST['price']))
+	// 	throw new Exception("invalid-price");
+	// if (!preg_match('/^[\w\-, ]$/', $_POST['description']))
+	// 	throw new Exception("invalid-description");
+
+	// DB manipulation
+	global $db;
+	$db = ierg4210_DB();
+	$q = $db->prepare("UPDATE products SET catid = :catid, name = :name, price = :price, description = :description WHERE pid = :pid");
+	$q->execute(array(":catid"=>$_POST['catid'], ":name"=>$_POST['name'], ":price"=>$_POST['price'], ":description"=>$_POST['description'], ":pid"=>$_POST['pid']));
+
+	$pid = $_POST['pid'];
+
+	if ($_FILES["file"]["size"] == 0) {
+		header('Location: admin.html');
+		exit();
+	} else if ($_FILES["file"]["error"] == 0
+		&& $_FILES["file"]["type"] == "image/jpeg"
+		&& $_FILES["file"]["size"] < 5000000) {
+
+		if (move_uploaded_file($_FILES["file"]["tmp_name"], "incl/img/" . $pid . ".jpg")) {
+			header('Location: admin.html');
+			exit();
+		}
+	} else {
+		header('Content-Type: text/html; charset=utf-8');
+		echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
+		exit();
+	}
+
 }
 
 
+function ierg4210_prod_delete() {
+
+	// input validation or sanitization
+	$_POST['catid'] = (int) $_POST['catid'];
+	$_POST['pid'] = (int) $_POST['pid'];
+
+	// DB manipulation
+	global $db;
+	$db = ierg4210_DB();
+	$q = $db->prepare("DELETE FROM products WHERE pid = ?");
+ 	return $q->execute(array($_POST['pid']));
+}
 
 
 

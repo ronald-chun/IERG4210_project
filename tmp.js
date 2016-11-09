@@ -1,6 +1,5 @@
-<script type="text/javascript">
-alert();
 (function(){
+	function updateUI() {
 		myLib.get({action:'cat_fetchall'}, function(json){
 			// console.log(JSON.stringify(json));
 			// loop over the server response json
@@ -51,7 +50,7 @@ alert();
 			// populate the product list or navigate to admin.php?catid=<id>
 			myLib.post({action: 'prod_fetch_a_cat', catid: id}, function(json){
 				for (var listItems = [], i = 0; i < Object.keys(json).length; i++) {
-					listItems.push('<li id="p' , json[i].pid , '"><span class="name">' , json[i].name.escapeHTML() , '</span> <span class="delete">[Delete]</span> <span class="edit">[Edit]</span></li>');
+					listItems.push('<li id="p' , json[i].pid , '"><label class="name">' , json[i].name.escapeHTML() , '</label> <span class="delete">[Delete]</span> <span class="edit">[Edit]</span></li>');
 				}
 				el('productList').innerHTML = listItems.join('');
 			});
@@ -67,20 +66,26 @@ alert();
 			id = target.parentNode.id.replace(/^p/, ''),
 			name = target.parentNode.querySelector('.name').innerHTML;
 
-		if ('edit' === target.className) {
+		if ('delete' === target.className) {
+			confirm('Sure?') && myLib.post({action: 'prod_delete', pid: id}, function(json){
+				alert('"' + name + '" is deleted successfully!');
+				updateUI();
+			});
+
+		// handle the edit click
+		} else if ('edit' === target.className) {
 			el('prod_edit_img').setAttribute('src', "");
 			el('productEditPanel').show();
 			el('productPanel').hide();
 			myLib.post({action: 'prod_fetch', pid: id}, function(json){
 				console.log(JSON.stringify(json));
 				el('prod_edit_catid').value = json[0].catid;
+				el('prod_edit_pid').value = json[0].pid;
 				el('prod_edit_name').value = json[0].name;
 				el('prod_edit_price').value = json[0].price;
 				el('prod_edit_description').value = json[0].description;
 				el('prod_edit_img').setAttribute('src', '/incl/img/' + json[0].pid + ".jpg");
 			});
-
-
 		}
 
 	}
@@ -109,4 +114,3 @@ alert();
 	}
 
 })();
-</script>

@@ -15,6 +15,9 @@
 
         <link rel="stylesheet" href="css/style.css">
         <script src="script/script.js" type="text/javascript"></script>
+        <script src="incl/myLib.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="css/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
 
     </head>
 
@@ -47,10 +50,15 @@
 
                 <div class="row">
                     <nav class="nav-bar col-md-9 col-sm-9"><a href="index.php">Home</a></nav>
-                    <div class="shopping-list shopping-list__summary col-md-3 col-sm-3">Shopping List $<span id="total">14.20</span></div>
-                    <div class="shopping-list shopping-list__detail hidden col-md-3 col-sm-3">Shopping List (Total: $<span id="total--detail"></span>)
-                        <div class="shopping-list__item row"></div>
-                        <button  type="button" class="checkout btn btn-default">Check Out</button>
+                    <div class="shopping-list shopping-list__summary col-md-3 col-sm-3"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List $<span id="total">0</span></div>
+                    <div id="shoppingCart" class="shopping-list shopping-list__detail hidden col-md-3 col-sm-3"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List (Total: $<span id="total--detail"></span>)
+                        <!-- <div class="shopping-list__item row"></div>
+                        <div class="shopping-list__item row">
+                            <span class="shopping-list__item--name col-md-4">2</span>
+                            <input class="shopping-list__item--quantity col-md-4" type="number" name="" min="1" value="1">
+                            <span class="shopping-list__item--price col-md-4"> $1</span>
+                        </div> -->
+                        <button type="button" class="checkout btn btn-default">Check Out</button>
                     </div>
                 </div>
 
@@ -70,7 +78,7 @@
                             "<br>" .
                             "<a href='product.php?catid=" . $r['catid'] . "&pid=" . $r['pid'] . "' class='products__item--link'>" . $r['name'] . "</a>" .
                             "<p>" . $r['price'] . "</p>" .
-                            "<button  type='button' class='add btn btn-default' data-name='" . $r['name'] . "' data-price='" . $r['price'] . "'>Add</button>" .
+                            "<button  type='button' class='add btn btn-default' data-pid='". $r['pid'] . "'>Add</button>" .
                             "</div>";
                         }
 

@@ -89,13 +89,11 @@ $(document).ready(function(){
     function shoppingCart__update() {
         // var product = '<div class="shopping-list__item row"><span class="shopping-list__item--name col-md-4">- ' + $(this).data('name') + '</span><input class="shopping-list__item--quantity col-md-4" type="number" name="" min="1" value="1"><span class="shopping-list__item--price col-md-4">' + $(this).data('price') + '</span></div>'
         // (".shopping-list__item:last").after(product);
-        // console.log(JSON.stringify(JSON.parse(window.localStorage.getItem('cart_storage'))));
 
+        // console.log(JSON.stringify(JSON.parse(window.localStorage.getItem('cart_storage'))));
         var storage = JSON.parse(window.localStorage.getItem('cart_storage'));
         var listItems = [];
-
         // listItems.push('<i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List (Total: $<span id="total--detail"></span>)<div class="shopping-list__item row"></div>');
-
         for(i = 0, listItems = []; i < storage.length; i++) {
             myLib.post({action:'prod_fetch', pid: storage[i].pid, async:false}, function(json){
                 // console.log(json[0].name);
@@ -110,7 +108,6 @@ $(document).ready(function(){
                 );
             });
         }
-        
         // listItems.push('aa', 'bb');
         // listItems.push('<button type="button" class="checkout btn btn-default">Check Out</button>');
         // console.log(listItems);

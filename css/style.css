@@ -58,12 +58,18 @@ nav {
 .shopping-list {
     background-color: #CCC;
     z-index: 1;
+    padding: 10px;
 }
 
 .shopping-list__detail {
     position: absolute;
     right: 0;
 }
+
+.shopping-list__item {
+    margin: 10px;
+}
+
 
 @media screen and (max-width: 768px) {
     .shopping-list__detail {

@@ -111,11 +111,7 @@ window.el = function(A) {
 	// To get some content in JSON format with AJAX
 	myLib.processJSON = function(url, param, successCallback, opt) {
 		opt = opt || {};
-<<<<<<< HEAD
 		opt.url = url || '../admin/admin-process.php';
-=======
-		opt.url = url || 'admin-process.php';
->>>>>>> 5a0f1165b1aac57b35c2bab2eebbec5f5d691df9
 		opt.method = opt.method || 'GET';
 		if (param)
 			opt.data = encodeParam(param);
@@ -132,19 +128,11 @@ window.el = function(A) {
 	myLib.get = function(param, successCallback) {
 		param = param || {};
 		param.rnd =  new Date().getTime(); // to avoid caching in IE
-<<<<<<< HEAD
 		myLib.processJSON('../admin/admin-process.php?' + encodeParam(param), null, successCallback);
 	};
 	// To send an action to the admin-process.php over AJAX
 	myLib.post = function(param, successCallback) {
 		myLib.processJSON('../admin/admin-process.php?rnd=' + new Date().getTime(), param, successCallback, {method:'POST'});
-=======
-		myLib.processJSON('admin-process.php?' + encodeParam(param), null, successCallback);
-	};
-	// To send an action to the admin-process.php over AJAX
-	myLib.post = function(param, successCallback) {
-		myLib.processJSON('admin-process.php?rnd=' + new Date().getTime(), param, successCallback, {method:'POST'});
->>>>>>> 5a0f1165b1aac57b35c2bab2eebbec5f5d691df9
 	};
 
 	// To validate if a form passes the client-side restrictions
@@ -179,11 +167,7 @@ window.el = function(A) {
 	myLib.submit = function(form, successCallback) {
 		myLib.validate(form) && myLib.ajax({
 			method: 'POST',
-<<<<<<< HEAD
 			url: form.getAttribute('action') || '../admin/admin-process.php',
-=======
-			url: form.getAttribute('action') || 'admin-process.php',
->>>>>>> 5a0f1165b1aac57b35c2bab2eebbec5f5d691df9
 			data: new formData(form).toString(),
 			success: function(json){
 				json = JSON.parse(json);

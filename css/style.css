@@ -1,0 +1,78 @@
+html {
+    position: relative;
+}
+
+a {
+    text-decoration: underline;
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+footer {
+    background-color: #999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+header {
+    border-bottom: 1px solid black;
+}
+
+nav {
+
+}
+
+.menu {
+
+}
+
+.content {
+
+}
+
+.products {
+
+}
+
+.products__item {
+    border: 1px solid gray;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.products__item--link {
+    color: black;
+}
+
+.products__item--img {
+    height: 200px;
+    width: 200px;
+}
+
+.shopping-list {
+    background-color: #CCC;
+    z-index: 1;
+    padding: 10px;
+}
+
+.shopping-list__detail {
+    position: absolute;
+    right: 0;
+}
+
+.shopping-list__item {
+    margin: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .shopping-list__detail {
+        position: relative;
+    }
+}

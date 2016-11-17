@@ -1,5 +1,7 @@
 <?php
-    include_once("lib/db.inc.php")
+    include_once("lib/db.inc.php");
+    include_once("lib/include.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -25,13 +27,13 @@
         <meta charset="UTF-8">
         <title><?php echo $result[0]['name'] ?> </title>
 
-        <script src="http://code.jquery.com/jquery-3.1.1.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-        <link rel="stylesheet" href="css/style.css">
-        <script src="script/script.js" type="text/javascript"></script>
+<!--        <script src="http://code.jquery.com/jquery-3.1.1.js" type="text/javascript"></script>-->
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+<!---->
+<!--        <link rel="stylesheet" href="css/style.css">-->
+<!--        <script src="script/script.js" type="text/javascript"></script>-->
 
     </head>
 
@@ -64,12 +66,16 @@
             </nav>
 
             <div class="content col-md-10 col-sm-10">
+
+                <!-- Shopping Cart -->
                 <div class="row">
-                    <nav class="nav-bar col-md-9 col-sm-9"><a href="..">Home</a> > <?php echo "<a href='category.php?catid=" . $catId ."'>"; echo $catName ?> </a> > <?php echo "<a href='product.php?catid=" . $catId . "&pid=" . $prodId . "'>"; echo $prodName ?> </a></nav>
-                    <div class="shopping-list shopping-list__summary col-md-3 col-sm-3">Shopping List $<span id="total">14.20</span></div>
-                    <div class="shopping-list shopping-list__detail hidden col-md-3 col-sm-3">Shopping List (Total: $<span id="total--detail"></span>)
-                        <div class="shopping-list__item row"></div>
-                        <button  type="button" class="checkout btn btn-default">Check Out</button>
+                    <nav class="nav-bar col-md-8 col-sm-8"><a href="..">Home</a> > <?php echo "<a href='category.php?catid=" . $catId ."'>"; echo $catName ?> </a> > <?php echo "<a href='product.php?catid=" . $catId . "&pid=" . $prodId . "'>"; echo $prodName ?> </a></nav>
+                    <div class="shopping-list shopping-list__summary col-md-4 col-sm-4"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List $<span id="total">0</span></div>
+                    <div class="shopping-list shopping-list__detail hidden col-md-4 col-sm-4">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List (Total: $<span id="total--detail"></span>)
+                        <div id="shoppingCart"></div>
+
+                        <button type="button" class="checkout btn btn-default">Check Out</button>
                     </div>
                 </div>
 
@@ -85,7 +91,7 @@
                                 <p>Name: <?php echo $prodName?> </p>
                                 <p>Price: $<span><?php echo $prodPrice?></span></p>
                                 <!-- <button  type="button" class="add btn btn-default" data-name="Bread" data-price="14.20">Add</button> -->
-                                <?php echo "<button  type='button' class='add btn btn-default' data-name='" . $prodName . "' data-price='" . $prodPrice . "'>Add</button>"; ?>
+                                <?php echo "<button  type='button' class='add btn btn-default' data-pid='" . $prodId . "'>Add</button>"; ?>
                             </section>
 
                             <hr>

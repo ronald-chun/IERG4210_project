@@ -29,10 +29,11 @@
 
             <div class="content col-md-10 col-sm-10">
 
+                <!-- Shopping Cart -->
                 <div class="row">
-                    <nav class="nav-bar col-md-9 col-sm-9"><a href="index.php">Home</a></nav>
-                    <div class="shopping-list shopping-list__summary col-md-3 col-sm-3"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List $<span id="total">0</span></div>
-                    <div class="shopping-list shopping-list__detail hidden col-md-3 col-sm-3">
+                    <nav class="nav-bar col-md-8 col-sm-8"><a href="index.php">Home</a></nav>
+                    <div class="shopping-list shopping-list__summary col-md-4 col-sm-4"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List $<span id="total">0</span></div>
+                    <div class="shopping-list shopping-list__detail hidden col-md-4 col-sm-4">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping List (Total: $<span id="total--detail"></span>)
                         <div id="shoppingCart"></div>
 
